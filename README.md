@@ -2,18 +2,18 @@
 # Challenge 2 - Creating Stock Price Performance
 The analysis outlines 2017 and 2018 Stock Performance to help individuals pick stocks with high volume and performance.  The program outlines 12 Stock Stickers that were chosen to track in 2017 and 2018.  The program can easily be modified to including thousand of stock tickers that needed to be tracked given the values are already assigned in the tickers array ahead to time.  The program is designed such that it will go through the worksheet only once and display all values.
 
-Below is VBA code for the Analysis
+# Below is VBA code for the Analysis
 
-Sub AllStockAnalysis()
+# Sub AllStockAnalysis()
 
-Worksheets("AllStocksAnalysis").Activate
+    Worksheets("AllStocksAnalysis").Activate
 
-YearValue = InputBox("Which Year would you like to run the analysis for?")
+    YearValue = InputBox("Which Year would you like to run the analysis for?")
 
 
-Range("A1").Value = "All Stocks (" + YearValue + ")"
+    Range("A1").Value = "All Stocks (" + YearValue + ")"
 
-'1) Create a header row: For Challenge Assignement - Action Created 2 more Columns
+## '1) Create a header row: For Challenge Assignement - Action Created 2 more Columns
 
 
 Cells(3, 1).Value = "Ticker"
@@ -23,7 +23,7 @@ Cells(3, 4).Value = "Start Price"
 Cells(3, 5).Value = "End Price"
 
 
-'2) Initialize array of all tickers
+## '2) Initialize array of all tickers
 Dim tickers(12) As String
 tickers(0) = "AY"
 tickers(1) = "CSIQ"
@@ -80,10 +80,10 @@ EndingPrice(9) = 0
 EndingPrice(10) = 0
 EndingPrice(11) = 0
 
-'3b) Activiate Data Worksheet
+## '3b) Activiate Data Worksheet
 Worksheets(YearValue).Activate
 
-'3c) Get Row Count
+## '3c) Get Row Count
 Dim RowCount As Long
 RowCount = Cells(Rows.Count, "A").End(xlUp).Row
 MsgBox (RowCount)
@@ -91,28 +91,28 @@ MsgBox (RowCount)
     Dim TickerIndex As Integer
     TickerIndex = 0
     
-'4) only 1 loop no outer loop to go through the loop once; Set up ticker index
+## '4) only 1 loop no outer loop to go through the loop once; Set up ticker index
 
-For J = 2 To RowCount
+    For J = 2 To RowCount
 
-              '5a Get Total Volume for each Ticker
+            ### '5a Get Total Volume for each Ticker
             If Cells(J, 1).Value = tickers(TickerIndex) Then
             TotalVolume(TickerIndex) = TotalVolume(TickerIndex) + Cells(J, 8).Value
             End If
             
             
-            'calculate starting price for Return calc - Adding Starting Price 0 but doesn't need it
+            ### 'calculate starting price for Return calc - Adding Starting Price 0 but doesn't need it
             If Cells(J - 1, 1).Value <> tickers(TickerIndex) And Cells(J, 1).Value = tickers(TickerIndex) Then
             StartingPrice(TickerIndex) = StartingPrice(TickerIndex) + Cells(J, 6).Value
             End If
             
-            'calculate end price for Return Calc - Adding Starting Price to 0 but it doesn't need it
+            ### 'calculate end price for Return Calc - Adding Starting Price to 0 but it doesn't need it
             
             If Cells(J + 1, 1).Value <> tickers(TickerIndex) And Cells(J, 1).Value = tickers(TickerIndex) Then
             EndingPrice(TickerIndex) = EndingPrice(TickerIndex) + Cells(J, 6).Value
             End If
             
-       'Increment Ticker Index
+       ### 'Increment Ticker Index
        
        If Cells(J + 1, 1).Value <> tickers(TickerIndex) And Cells(J, 1).Value = tickers(TickerIndex) Then
        TickerIndex = TickerIndex + 1
@@ -121,7 +121,7 @@ For J = 2 To RowCount
 Next J
      
 
- '6) Output for current ticker - Challenge 2 Output for Starting and End Price
+## '6) Output for current ticker - Challenge 2 Output for Starting and End Price
 Worksheets("AllStocksAnalysis").Activate
 
 For T = 0 To 11
@@ -145,7 +145,7 @@ Range("C4:C15").NumberFormat = "0.0%"
 datastartRow = 4
 DataendRow = 15
 
-For i = datastartRow To DataendRow
+## For i = datastartRow To DataendRow
 
 If Cells(i, 3) > 0 Then
     'Format Color Green
@@ -159,4 +159,4 @@ If Cells(i, 3) > 0 Then
 End If
 Next i
 
-End Sub
+## End Sub
