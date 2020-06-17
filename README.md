@@ -7,6 +7,11 @@ Source Excel File: https://github.com/vsanand27/stock-analysis/blob/master/green
 
 # Below is VBA code for the Analysis
 
+![alt text](https://github.com/vsanand27/stock-analysis/blob/master/fig1%20-%20VBA%20Code.PNG)
+![alt text](https://github.com/vsanand27/stock-analysis/blob/master/fig%202%20VBA%20code.PNG)
+![alt text](https://github.com/vsanand27/stock-analysis/blob/master/Fig%203%20VBA%20Code.PNG)
+![alt text](https://github.com/vsanand27/stock-analysis/blob/master/fig%204%20-%20VBA%20Code.PNG)
+
 ## Sub AllStockAnalysis()
 
     Worksheets("AllStocksAnalysis").Activate
