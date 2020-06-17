@@ -7,7 +7,7 @@ Source Excel File: https://github.com/vsanand27/stock-analysis/blob/master/green
 
 # Below is VBA code for the Analysis
 
-# Sub AllStockAnalysis()
+## Sub AllStockAnalysis()
 
     Worksheets("AllStocksAnalysis").Activate
 
